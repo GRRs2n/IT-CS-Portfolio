@@ -13,7 +13,8 @@ Below are the key projects from this portfolio. They link to individual reposito
 - **Dockerized Node.js/Express Demo** – A minimal web service packaged in a Docker container, demonstrating how to containerize and deploy a simple application.
   Repository: [`javascript_files`](https://github.com/GRRs2n/javascript_files)
 
-- **Multi-Tier Web Deployment (coming soon)** – Deploying a document management system across multiple Linux servers with load balancing and TLS.
+- **Multi-Tier SeedDMS Deployment** – A scalable multi-tier deployment of the SeedDMS document management system across separate web and database tiers with HAProxy load balancing and TLS termination. See [projects/seed-dms-deployment](projects/seed-dms-deployment).
+
 
 - **Vulnerability Management Lab (coming soon)** – Performing a vulnerability scan with Nessus, prioritizing findings, and documenting remediation steps.
 
