@@ -38,3 +38,13 @@ Below are the key projects from this portfolio. They link to individual reposito
 
 - The repository `git-repo-school` is a coursework archive and not part of the professional portfolio. It contains sanitized assignments for reference only.
 - New projects will be added as they are completed. Feel free to check back for updates.
+
+## Lab Summaries
+
+This section provides brief summaries of completed lab activities, with links to detailed documentation in this repository.
+
+- **AWS CLI Setup** – Steps for installing and configuring the AWS Command Line Interface and using it to create and manage S3 buckets. [labs/aws-cli-setup](labs/aws-cli-setup)
+- **AWS S3 Static Website** – Demonstrates deploying a static website to Amazon S3 using a shell script, including policy configuration and validation. [labs/aws-s3-static-website](labs/aws-s3-static-website)
+- **AWS EFS Setup** – Provisioning and mounting an Amazon Elastic File System to an EC2 instance, including troubleshooting and lifecycle policies. [labs/aws-efs-setup](labs/aws-efs-setup)
+- **Azure CLI Setup** – Installing and using the Azure CLI to authenticate and manage resources, such as listing storage accounts and retrieving connection strings. [labs/azure-cli-setup](labs/azure-cli-setup)
+- **Azure Static Website** – Configuring an Azure StorageV2 account to host a static website, enabling static website hosting, and verifying deployment. [labs/azure-static-website](labs/azure-static-website)
