@@ -10,19 +10,19 @@ I'm pursuing degrees in IT and Cybersecurity with the goal of becoming a securit
 
 Below are the key projects from this portfolio. They link to individual repositories with full documentation and source files.
 
-- **Dockerized Node.js/Express Demo** – A minimal web service packaged in a Docker container, demonstrating how to containerize and deploy a simple application.
-  Repository: [`javascript_files`](https://github.com/GRRs2n/javascript_files)
+- **Containerization & Orchestration** – Projects on building and packaging applications with Docker, writing Dockerfiles, and orchestrating services with Docker Compose. See [projects/docker-flask-container](projects/docker-flask-container), [projects/dockerfile-writing](projects/dockerfile-writing), [projects/docker-compose-django](projects/docker-compose-django), and [projects/docker-ecr-deployment](projects/docker-ecr-deployment).
+
+- **Automation & Infrastructure as Code** – Using Ansible to automate system setup, cloud provisioning, and configuration management. See [projects/ansible-vm-setup](projects/ansible-vm-setup), [projects/ansible-aws-credentials](projects/ansible-aws-credentials), [projects/ansible-ec2-provisioning](projects/ansible-ec2-provisioning), [projects/ansible-templates](projects/ansible-templates), [projects/ansible-role-wordpress](projects/ansible-role-wordpress), [projects/database-security-privileges](projects/database-security-privileges), and [projects/database-backup-restore](projects/database-backup-restore).
 
 - **Multi-Tier SeedDMS Deployment** – A scalable multi-tier deployment of the SeedDMS document management system across separate web and database tiers with HAProxy load balancing and TLS termination. See [projects/seed-dms-deployment](projects/seed-dms-deployment).
 
+- **Performance & Benchmarking** – Load testing and database performance evaluation using JMeter and HammerDB. See [projects/jmeter-load-testing](projects/jmeter-load-testing), [projects/database-performance-hammerdb](projects/database-performance-hammerdb), and [projects/monitoring-analysis](projects/monitoring-analysis).
 
-- **Vulnerability Management Lab (coming soon)** – Performing a vulnerability scan with Nessus, prioritizing findings, and documenting remediation steps.
+- **Monitoring & Observability** – Deploying monitoring tools like Nagios and Site24x7 and exploring observability. See [projects/nagios-monitoring](projects/nagios-monitoring), [projects/site24x7-external-monitoring](projects/site24x7-external-monitoring), and [projects/monitoring-analysis](projects/monitoring-analysis).
 
-- **Firewall & Network Segmentation Lab (coming soon)** – Implementing firewall rules between subnets and validating least-privilege connectivity.
+- **Security Hardening & Vulnerability Management** – Documenting remediation, network scanning, application hardening, policy development, and traffic analysis. See [projects/vulnerability-remediation-report](projects/vulnerability-remediation-report), [projects/vulnerability-scanning-ticket-management](projects/vulnerability-scanning-ticket-management), [projects/application-hardening-ecommerce](projects/application-hardening-ecommerce), [projects/network-scanning-nmap](projects/network-scanning-nmap), [projects/wireshark-shodan-analysis](projects/wireshark-shodan-analysis), [projects/service-level-agreement](projects/service-level-agreement), and [projects/security-policies](projects/security-policies).
 
-- **IAM Policies & RBAC (coming soon)** – Designing least-privilege access policies aligned to NIST 800‑53 controls.
-
-- **Automation Scripts (coming soon)** – A collection of Bash/PowerShell scripts and Ansible playbooks to automate user management, patching, and log collection.
+- **Incident Response & Analysis** – Simulated incident scenarios and architectural analysis. See [projects/incident-response-case-study](projects/incident-response-case-study) and [projects/microservices-overview](projects/microservices-overview).
 
 ## Skills
 
@@ -33,7 +33,7 @@ Below are the key projects from this portfolio. They link to individual reposito
 - Vulnerability scanning (e.g., Nessus/OpenVAS)
 - Identity & access management
 - Scripting with Python, Bash, PowerShell
-- Infrastructure as Code (Terraform/Ansible – upcoming)
+- Infrastructure as Code (Terraform/Ansible)
 
 ## Notes
 
