@@ -4,26 +4,26 @@
 This project explores network security through the analysis of packet captures (pcaps) and external reconnaissance using Shodan. By examining network traffic and publicly exposed services, I learned how attackers may exploit insecure protocols and misconfigured systems and how defenders can proactively identify and mitigate risks.
 
 ## What I Did
-- Analyzed the `av.pcap` capture using Wireshark to inspect an anti‑virus software update session. I identified the source IP (81.131.131.6), destination (80.239.144.76), FTP protocol in use and noted that the connection used anonymous credentials. The RETR command was used to retrieve nine files (`avp.klb`, `avp.set`, `avp_ext.set`, `avp_x.set`, `black.lst`, `ca.avc`, `daily-ex.avc`, `daily.avc`, `master.xml`)【408223297298984†L9-L60】. Because FTP is unencrypted an attacker could intercept credentials and tamper with the update files【408223297298984†L56-L60】.
-- Opened the `NetworkProtocol.pcap` and discovered that it was using SNMP version 1 with the community string `public`【408223297298984†L72-L96】. I parsed several Object IDs: `sysObjectID`, `prtChannelState`, `sysName`, `sysLocation` and `ifPhysAddress` and learned how each reveals device type, status, names and MAC addresses. Attackers can leverage this information to fingerprint devices and target known vulnerabilities.
-- Examined a `Malware.pcap` and detected the malware beaconing to domains like `nofbiatdominicana.com` and `kpai7ycr7jxqkilp.torexplorer.com`. The DNS responses resolved to a private IP (192.168.204.2) which indicated domain masquerading【408223297298984†L176-L190】. Packet analysis showed the host was a virtual machine (VMware MAC address), established an encrypted connection (SSL/TLS), and sent victims to a ransom payment URI `http://nofbiatdominicana.com/3ubc5pzotxyp0ui`【408223297298984†L195-L209】. I noted that malware uses encryption to evade inspection【408223297298984†L201-L204】.
-- Registered a Shodan account and performed various searches. Queries for “default password” revealed numerous HP printers and nginx servers using default credentials, while “vnc”, “rdp” and “scada” searches returned devices with open remote‑access ports【408223297298984†L230-L274】. I learned that these services often run with default settings, leaving them vulnerable to takeover. Shodan can also find industrial control systems and unpatched SCADA devices, highlighting the danger of exposed critical infrastructure【408223297298984†L266-L283】.
-- Reflected on how organizations can use Shodan defensively to inventory their own internet‑facing assets and remediate misconfigurations before adversaries discover them【408223297298984†L323-L330】.
+- **Anti‑virus update session (av.pcap):** Inspected a pcap of an anti‑virus software update using Wireshark. Found the client used anonymous FTP to download nine files: `avp.klb`, `avp.set`, `avp_ext.set`, `avp_x.set`, `black.lst`, `ca.avc`, `daily-ex.avc`, `daily.avc` and `master.xml`. Because FTP transfers data in clear text, any attacker on the path could intercept credentials and tamper with the update files.
+- **Network protocol capture (NetworkProtocol.pcap):** Discovered that the capture used SNMP v1 with the community string `public`. Parsed object identifiers such as `sysObjectID`, `prtChannelState`, `sysName`, `sysLocation` and `ifPhysAddress`, which reveal device type, status, names and MAC addresses. Attackers can leverage this information to fingerprint systems and target known vulnerabilities.
+- **Malware beacon (Malware.pcap):** Detected malware beaconing to domains like `nofbiatdominicana.com` and `kpai7ycr7jqxqkilp.torexplorer.com`. DNS responses resolved to an internal IP address, indicating the victim was behind a NAT. Packet analysis showed the host was a virtual machine and that the malware communicated over TLS. The beacon directed victims to a ransom payment URL. This demonstrates how modern malware uses encryption and anonymised infrastructure to evade inspection.
+- **Shodan reconnaissance:** Created a Shodan account and used it to search for services with default credentials, as well as keywords like `vnc`, `rdp` and `scada`. The searches revealed numerous HP printers, nginx servers and industrial control systems accessible over the internet, many still using default or no credentials. This highlighted the danger of exposed critical infrastructure services and misconfigurations.
 
 ## Findings
-- **FTP update sessions are insecure**: Transfers used anonymous credentials over FTP, retrieving multiple files without encryption【408223297298984†L56-L60】.
-- **SNMP v1 leaks device metadata**: Using the default `public` community string and outdated protocol allows attackers to enumerate devices via OIDs【408223297298984†L72-L96】.
-- **Malware uses DNS and TLS to hide communications**: The C2 infrastructure resolved malicious domains to private IPs and used TLS to encrypt payloads【408223297298984†L176-L204】.
-- **Default credentials and open services are widespread**: Shodan searches show many devices with default passwords or open VNC/RDP/SCADA ports【408223297298984†L230-L274】.
+- **FTP update sessions are insecure:** Transfers used anonymous FTP, retrieving multiple update files without encryption. Adversaries could intercept credentials and tamper with updates.
+- **SNMP v1 leaks device metadata:** Using the default `public` community string exposes detailed host information and should be replaced with SNMP v3 and strong community strings.
+- **Malware uses encrypted channels:** Modern threats use TLS and Tor domains to hide command‑and‑control traffic, making detection harder; defenders must monitor encrypted traffic patterns and DNS queries.
+- **Shodan exposes misconfigured devices:** Default passwords and open remote‑access ports are still common. Regularly auditing internet‑facing services via Shodan helps find and remediate misconfigurations before attackers do.
 
 ## Lessons Learned
-- Always replace insecure protocols like FTP with secure alternatives (SFTP/FTPS) and enforce strong authentication【408223297298984†L56-L60】.
-- Upgrade SNMP deployments to version 3 and change community strings from the defaults to reduce information leakage【408223297298984†L72-L96】.
-- Threat actors hide C2 traffic within encrypted tunnels; monitoring DNS requests and certificate details can reveal malicious patterns【408223297298984†L176-L204】.
-- Shodan is a powerful tool for both defenders and attackers; continuously monitor your own exposed services and remediate default credentials or open remote‑access ports【408223297298984†L230-L330】.
+- Always use secure protocols such as SFTP/FTPS or HTTPS for software updates; disable anonymous FTP.
+- Replace SNMP v1 with SNMP v3 and use unique, complex community strings.
+- Monitor DNS and TLS traffic for signs of beaconing and maintain endpoint protection capable of inspecting encrypted C2 channels.
+- Regularly scan your own network with tools like Shodan to identify exposed services and remediate weak credentials and outdated software.
+- Document and remediate misconfigurations promptly and educate users about the risks of default passwords.
 
 ## Next Steps
-- Configure secure update mechanisms for software (use HTTPS or signed updates).
-- Harden network devices: disable SNMP v1, implement SNMPv3 and restrict SNMP access.
-- Implement network traffic inspection solutions that can detect encrypted malware C2 communications.
-- Regularly audit your organization’s internet exposure with Shodan or similar services and close or secure unnecessary services.
+- Convert the FTP update mechanism to a secure alternative and validate the integrity of updates with cryptographic signatures.
+- Implement network‑wide policies requiring SNMP v3 and encrypted management protocols.
+- Develop detection rules for malware beaconing patterns and integrate them into SIEM and IDS systems.
+- Schedule periodic external scans using Shodan or similar services as part of the asset management process.
