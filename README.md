@@ -4,7 +4,7 @@ Welcome to my combined cybersecurity and IT portfolio. This repository serves as
 
 ## About Me
 
-I'm pursuing degrees in IT and Cybersecurity with the goal of becoming a security-minded IT specialist. My work focuses on deploying and securing real-world systems, automating routine tasks, and following best practices in hardening and incident response.
+I'm pursuing my Bachelor's degree in IT and hold a Bachelor's in Cybersecurity with the goal of becoming a security-minded IT/Cybersecurity specialist. My work focuses on deploying and securing real-world systems, automating routine tasks, and following best practices in hardening and incident response.
 
 ## Top Projects
 
