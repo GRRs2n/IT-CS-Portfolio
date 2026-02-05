@@ -1,10 +1,10 @@
-# SeedDMS Multi‑Tier Cloud Deployment
+# SeedDMS Multi-Tier Cloud Deployment
 
-This project documents the design, implementation, and improvement of a multi‑tier SeedDMS deployment in the cloud. SeedDMS is an open‑source document management system. The goal was to build a robust, scalable environment that separates application and database tiers and introduces load balancing and HTTPS.
+This project documents the design, implementation, and improvement of a multi-tier SeedDMS deployment in the cloud. SeedDMS is an open-source document management system. The goal was to build a robust, scalable environment that separates application and database tiers and introduces load balancing and HTTPS.
 
 ## Architecture
 
-The deployment uses a three‑tier architecture:
+The deployment uses a three-tier architecture:
 
 - **Web tier:** Multiple EC2 instances running Apache, PHP, and SeedDMS.
 - **Database tier:** A dedicated MariaDB instance to store SeedDMS data.
@@ -15,16 +15,19 @@ The deployment uses a three‑tier architecture:
 - Automated environment setup with separate web and database nodes.
 - Horizontal scaling of the web tier from one to three nodes.
 - Load balancing with health checks and SSL termination via HAProxy.
-- Self‑signed certificate generation and configuration for HTTPS.
+- Self-signed certificate generation and configuration for HTTPS.
 - Ongoing performance tuning and routing validation.
 
 ## Project Reports
 
 Progress was tracked via weekly status reports:
 
-- [Week 1 – Initial Environment Setup](reports/week1.md)
-- [Week 2 – Scaling and Load Balancer Preparation](reports/week2.md)
-- [Week 3 – SSL and HAProxy Configuration](reports/week3.md)
+- [Week 1 – Initial Environment Setup](reports/week1.md)
+
+- [Week 2 – Scaling and Load Balancer Preparation](reports/week2.md)
+- [Week 3 – SSL and HAProxy Configuration](reports/week3.md)
+- [Week 4 – Session Persistence and Failover Testing](reports/week4.md)
+- [Final Project Report](reports/final-report.md)
 
 ## Lessons Learned
 
